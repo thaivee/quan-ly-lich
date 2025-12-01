@@ -1,0 +1,298 @@
+/* Sử dụng các biến màu từ dashboard (giả định) */
+:root {
+    --primary: #60A5FA;
+    --primary-light: #BFDBFE;
+    --bg-main: #F8FAFC;
+    --white: #ffffff;
+    --text-main: #1E293B;
+    --text-body: #475569;
+    --text-light: #94A3B8;
+    --border-color: #E2E8F0;
+    --shadow-soft: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.05); 
+    --shadow-deep: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-body);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-container {
+    width: 100%;
+    max-width: 75rem; 
+    padding: 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 1.25rem 0;
+    margin-bottom: 3.75rem; 
+    opacity: 0; 
+    transform: translateY(-1.25rem);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.header.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+.logo {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; 
+}
+
+/* BUTTONS */
+.btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 3rem; 
+    font-weight: 800;
+    font-size: 1rem; 
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; 
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.btn-primary { 
+    background: var(--primary); 
+    color: var(--white); 
+    box-shadow: 0 0.5rem 1.25rem rgba(96, 165, 250, 0.4); 
+}
+.btn-primary:hover { 
+    transform: translateY(-0.125rem); 
+    background: #3B82F6; 
+}
+.btn-secondary { 
+    background: #F1F5F9; 
+    color: var(--text-body); 
+    border: 0.0625rem solid var(--border-color); 
+}
+.btn-secondary:hover { 
+    background: #E2E8F0; 
+    border-color: var(--primary); 
+}
+.large-btn { 
+    padding: 1rem 2.25rem;
+    font-size: 1.125rem;
+    margin-top: 1.875rem; 
+}
+
+
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    padding: 5rem 0;
+    flex-grow: 1;
+    min-height: 60vh;
+}
+
+.hero-content {
+    flex: 1;
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+.hero-content.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.subtitle {
+    font-size: 0.875rem; 
+    font-weight: 900;
+    color: var(--primary);
+    letter-spacing: 0.125rem; 
+    margin-bottom: 0.9375rem; 
+}
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    line-height: 1.1;
+    margin-bottom: 1.25rem; 
+    letter-spacing: -0.0625rem; 
+}
+.description {
+    font-size: 1.125rem; 
+    color: var(--text-body);
+    line-height: 1.6;
+    max-width: 34.375rem; 
+}
+
+/* --- HERO ILLUSTRATION --- */
+.hero-illustration {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 28.125rem;
+}
+
+.card-stack {
+    position: relative;
+    width: 23.75rem; 
+    height: 23.75rem;
+    transform: rotateX(10deg) rotateY(-10deg);
+    transform-style: preserve-3d;
+    perspective: 62.5rem; 
+}
+
+.card {
+    position: absolute;
+    padding: 1.25rem;
+    background: var(--white);
+    border-radius: 1.25rem; 
+    box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+    border: 0.0625rem solid var(--border-color);
+}
+
+/* CĂN CHỈNH VỊ TRÍ CARD */
+.card-1 {
+    width: 20rem;
+    height: 20rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 6.875rem; 
+    z-index: 3;
+    top: 1.875rem; 
+    left: 1.875rem;
+    animation: floating 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+.card-2 { /* Lịch thi */
+    width: 13.75rem;
+    top: 0px; 
+    left: 12.5rem;
+    background: #FCE7F3;
+    color: #9D174D;
+    z-index: 4;
+    padding: 0.9375rem; 
+    transform: translateZ(3.125rem); 
+    animation: cardFloat 5s ease-in-out infinite;
+    opacity: 0;
+}
+.card-2 h4 { 
+    font-size: 1.125rem; 
+    font-weight: 900; 
+}
+.card-2 p { 
+    font-size: 0.75rem; 
+    margin-bottom: 0.3125rem; 
+    font-weight: 700; 
+    color: #EC4899; 
+}
+
+.card-3 { /* Deadline */
+    width: 17.5rem; 
+    bottom: 3.125rem;
+    left: -3.125rem;
+    background: #FFEDD5;
+    color: #9A3412;
+    z-index: 2;
+    padding: 1.25rem;
+    transform: translateZ(3.125rem);
+    animation: cardFloat 5.5s ease-in-out infinite reverse;
+    opacity: 0;
+}
+.card-3 h4 { 
+    font-size: 1.25rem; 
+    font-weight: 900; 
+}
+.card-3 p { 
+    font-size: 0.875rem; 
+    margin-bottom: 0.3125rem; 
+    font-weight: 700; 
+    color: #F97316; 
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-0.625rem) rotate(1deg); } 
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateZ(3.125rem) translateY(0) translateX(0); }
+    50% { transform: translateZ(3.125rem) translateY(-0.3125rem) translateX(0.3125rem); } 
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 1.875rem 0 1.25rem;
+    font-size: 0.875rem; 
+    color: var(--text-light);
+    opacity: 0;
+    transition: opacity 1s ease-out 0.5s;
+}
+
+/* RESPONSIVE */
+@media (max-width: 68.75rem) { 
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 0; 
+        gap: 2.5rem;
+    }
+    .hero-content { order: 1; }
+    .hero-illustration { order: -1; min-height: 21.875rem;  }
+    .hero-content h1 { font-size: 3rem;  }
+    .hero-content .description { margin: 0 auto; }
+    .card-stack { transform: none; }
+    .card-2 { left: 6.25rem;  top: 0; }
+    .card-3 { left: -3.125rem;  bottom: 0; }
+}
+
+@media (max-width: 37.5rem) { 
+    .card-stack { 
+        width: 17.5rem;  
+        height: 21.875rem; 
+        margin: 0 auto; 
+    }
+    .card-1 { 
+        width: 15.625rem; 
+        height: 15.625rem; 
+        font-size: 5rem; 
+        top: 3.125rem; 
+        left: 0.625rem; 
+    }
+    .card-2 { 
+        left: 8.75rem; 
+        width: 8.125rem; 
+        top: 1.875rem; 
+    }
+    .card-3 { 
+        width: 12.5rem;
+        bottom: 1.875rem; 
+        left: -0.625rem; 
+    }
+    .hero-content h1 { 
+        font-size: 2.375rem; 
+    }
+}
