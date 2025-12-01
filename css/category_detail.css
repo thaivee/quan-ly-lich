@@ -1,0 +1,152 @@
+.detail-header {
+  margin-bottom: 2rem; 
+  border-bottom: 0.125rem solid var(--border-color); 
+  padding-bottom: 1.5rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: var(--text-body);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+  margin-bottom: 0.5rem;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: var(--primary);
+  transform: translateX(-0.25rem);
+}
+
+.page-title-row {
+  margin-top: 0.5rem; 
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mini-stat {
+  padding: 0.75rem 1.5rem; 
+  min-height: auto;
+  gap: 1rem;
+  border-radius: 1.25rem; 
+}
+
+.mini-stat .stat-icon {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem; 
+  border-radius: 0.75rem; 
+}
+
+/* Timeline Style */
+.detail-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem; 
+}
+
+.timeline-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.timeline-date {
+  width: 4.5rem;
+  text-align: right;
+  padding-top: 0.5rem; 
+}
+
+.date-big {
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.25rem; 
+}
+
+.date-small {
+  font-size: 0.875rem; 
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+.year-small {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #CBD5E1;
+}
+
+.timeline-content {
+  flex: 1;
+  background: white;
+  padding: 1.25rem 1.5rem; 
+  border-radius: 1.25rem; 
+  border: 0.0625rem solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: 0.2s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-0.25rem); 
+  box-shadow: var(--shadow-hover);
+}
+
+/* Kẻ đường nối timeline */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem; 
+  top: 1.75rem; 
+  width: 1rem; 
+  height: 0.1875rem; 
+  background: var(--border-color);
+}
+
+.timeline-title {
+  font-size: 1.125rem; 
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-time {
+  color: var(--text-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+}
+
+/* Empty State */
+.detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 18.75rem; 
+}
+
+.empty-icon {
+  font-size: 4rem; 
+  margin-bottom: 1rem; 
+  opacity: 0.2;
+  color: var(--text-main);
+}
+
+.detail-empty p {
+  font-size: 1.125rem; 
+  color: var(--text-light);
+  font-weight: 700;
+}
