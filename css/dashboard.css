@@ -691,7 +691,8 @@ button,
   font-weight: 900;
   letter-spacing: -0.03125rem;
   background: -webkit-linear-gradient(45deg, #1E293B, #60A5FA);
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
