@@ -328,10 +328,13 @@ button,
 /* --- PANEL --- */
 .dashboard-panel {
   background: white;
-  border-radius: 2rem; 
-  padding: 2.5rem; 
+  border-radius: 2rem;
+  padding: 2.5rem;
   box-shadow: var(--shadow-soft);
-  flex: 1;
+  
+  /* flex: 1;  <-- XÓA HOẶC COMMENT DÒNG NÀY */
+  height: fit-content; /* <-- THÊM DÒNG NÀY: Để chiều cao tự co theo nội dung */
+  
   display: flex;
   flex-direction: column;
   border: 0.0625rem solid var(--border-color);
@@ -470,7 +473,7 @@ button,
   overflow-y: auto;
   flex: 1;
   padding-right: 0.5rem; 
-  min-height: 25rem; 
+  min-height: auto; 
 }
 
 .week-scroller::-webkit-scrollbar {
